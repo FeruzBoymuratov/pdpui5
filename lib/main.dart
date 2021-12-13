@@ -49,23 +49,99 @@ class _HomePageState extends State<HomePage> {
             Container(
               height: 210,
               width: double.infinity,
-              color: Colors.red,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/img.png"),
+                  fit: BoxFit.cover,
+                )
+              ),
+              child: Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.bottomRight,
+                    colors: [
+                      Colors.black.withOpacity(0.7),
+                      Colors.black.withOpacity(0.4),
+                      Colors.black.withOpacity(0.2),
+                    ],
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text("Best Hotels Ever", style: TextStyle(color: Colors.white, fontSize: 27, fontWeight: FontWeight.bold),),
+                    SizedBox(height: 20,),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                      ),
+                      height: 40,
+                      width: 300,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.search, size: 21,),
+                          border: InputBorder.none,
+                          hintText: "Search for hotels...",
+                          hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Container(
-              margin: EdgeInsets.all(15),
-              child: Text("Business Hotels", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),),
+              margin: EdgeInsets.only(top: 10, left: 15),
+              child: Text("Business Hotels", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
             ),
             Container(
-              height: 200,
-              margin: EdgeInsets.all(15),
+              height: 150,
+              margin: EdgeInsets.all(10),
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  makeItem(image: "assets/images/img.png", title: "Hotel1"),
-                  makeItem(image: "assets/images/img.png", title: "Hotel1"),
+                  makeItem(image: "assets/images/img.png", title: "Hotel 1"),
+                  makeItem(image: "assets/images/img.png", title: "Hotel 2"),
+                  makeItem(image: "assets/images/img.png", title: "Hotel 2"),
                 ],
             ),
       ),
+            Container(
+              margin: EdgeInsets.only(bottom: 10, left: 15),
+              child: Text("Airport Hotels", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
+            ),
+
+            Container(
+              height: 150,
+              margin: EdgeInsets.all(10),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  makeItem(image: "assets/images/img.png", title: "Hotel 1"),
+                  makeItem(image: "assets/images/img.png", title: "Hotel 2"),
+                  makeItem(image: "assets/images/img.png", title: "Hotel 2"),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 10, left: 15),
+              child: Text("Resort Hotels", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
+            ),
+
+            Container(
+              height: 150,
+              margin: EdgeInsets.all(10),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  makeItem(image: "assets/images/img.png", title: "Hotel 1"),
+                  makeItem(image: "assets/images/img.png", title: "Hotel 2"),
+                  makeItem(image: "assets/images/img.png", title: "Hotel 2"),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -75,6 +151,7 @@ class _HomePageState extends State<HomePage> {
     return AspectRatio(
       aspectRatio: 1.2/1,
       child: Container(
+        padding: EdgeInsets.all(10),
         margin: EdgeInsets.only(right: 15),
         height: 30,
         width: 30,
@@ -83,11 +160,22 @@ class _HomePageState extends State<HomePage> {
           image: DecorationImage(
             image: AssetImage(image),
             fit: BoxFit.cover,
-          )
+          ),
+          gradient: LinearGradient(
+          begin: Alignment.bottomRight,
+          colors: [
+            Colors.black.withOpacity(0.7),
+            Colors.black.withOpacity(0.4),
+            Colors.black.withOpacity(0.2),
+          ],
+        ),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            Text(title, style: TextStyle(color: Colors.white),)
+            Text(title, style: TextStyle(color: Colors.white, fontSize:25,),),
+            Icon(Icons.favorite, color: Colors.red,),
           ],
         ),
       ),
